@@ -1,18 +1,30 @@
-						Information
-The project is updated as far as possible.
-The project contains information about my experience in using various technologies and commands.
-In the file, you can find brief information, instructions, commands, tips and descriptions of technologies in your own words.
+						#################
+						#  Information  #
+						#################
+
+#The project is updated as far as possible.
+#The project contains information about my experience in using various technologies and commands.
+#In the file, you can find brief information, instructions, commands, tips and descriptions of technologies in your own words.
+
+						#######
+						# Git #
+						#######
+
+#Git is a VCS - Version Control System. Git takes a snapshot of the files and keeps track of the difference between changes.
 
 
-						Git
-Git is a VCS - Version Control System. Git takes a snapshot of the files and keeps track of the difference between changes.
 
 --install git
 	sudo apt install git
 
+
 --settings patch
 /etc/gitconfig  - contains global settings
 ~/.gitconfig   or   ~/.config/git/config  -  contains user local settings.
+
+
+
+
 
 --first settings git
 Add user name
@@ -23,12 +35,16 @@ Add core editor
 	git config --global core.editor nano
 
 
+
+
 --Add git alias
 	git config --global alias.br branch
 	git config --global alias.ci commit
 	git config --global alias.st status
 	git config --global alias.last 'log -1 HEAD'
 	git config --global alias.visual "!gitk"
+
+
 
 
 --Git start comand.
@@ -44,9 +60,12 @@ Comparison in the graphic utility
 Show Changes in tag
 	git show NAME_TAG
 
+
+
 --Log
 	git log
 	git show NAME_COMMITE
+
 Log: 
 (--patch -1|-p 1 			show diff between commits
  -(n)					show last number of commits
@@ -77,8 +96,10 @@ Status file: commited, modified, staged, untracked, unmodified.
 --Working with index
 	git add "FILE_NAME"
 
---Commit
 
+
+
+--Commit
 
 	git commit -m "You commit"
 	git commit -a -m "You commit fast ADD file"
@@ -95,13 +116,13 @@ Status file: modified, commited, staged, untracked, unmodified.
 
 --Tags
 
-There are two kinds of tags.
+#There are two kinds of tags.
 
-Lightweight - have name tag
-Annotated - have name tag, date, info changes, name author, commit.
+# - Lightweight - have name tag
+# - Annotated - have name tag, date, info changes, name author, commit.
+
 
 	git tag
-
 Tag list
 	git tag -l
 Add tag in commit
@@ -163,14 +184,14 @@ Default branch - master
 Default remote - origen
 
 
-Commit have in hash sum:
-commit 
-tree
-perent
-author 
-committer
+# Commit have in hash sum:
+# commit 
+# tree
+# perent
+# author 
+# committer
 
-Tree have blob - hash cum files
+# Tree have blob - hash cum files
 
 
 Branch
