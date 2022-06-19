@@ -35,8 +35,6 @@ Add core editor
 	git config --global core.editor nano
 
 
-
-
 --Add git alias
 	git config --global alias.br branch
 	git config --global alias.ci commit
@@ -47,10 +45,15 @@ Add core editor
 
 
 
---Git start comand.
+
+
+
+--Start in git.
 	git init
 
 
+
+# Status
 --Check Status comands:
 	git status
 Chech Changes: (--staged or --cached comparison of indexed files)
@@ -59,7 +62,6 @@ Comparison in the graphic utility
 	git difftool
 Show Changes in tag
 	git show NAME_TAG
-
 
 
 --Log
@@ -91,7 +93,7 @@ Log:
 
 
 
-Status file: commited, modified, staged, untracked, unmodified.
+#Status file: commited, modified, staged, untracked, unmodified.
 
 --Working with index
 	git add "FILE_NAME"
@@ -107,20 +109,24 @@ Status file: commited, modified, staged, untracked, unmodified.
 
 
 
-
-
-Substitution or rename commit
+--Substitution or rename commit
 	git commit --amend
 
-Status file: modified, commited, staged, untracked, unmodified.
+# Status file: modified, commited, staged, untracked, unmodified.
 
---Tags
+
+
+
+
+
+
+
+# Tags
 
 #There are two kinds of tags.
 
 # - Lightweight - have name tag
 # - Annotated - have name tag, date, info changes, name author, commit.
-
 
 	git tag
 Tag list
@@ -129,23 +135,19 @@ Add tag in commit
 	git tag -a NAME_TAG HASH_COMMIT
 -m 					add messege in tag
 
-Tags in remote
+--Tags in remote
 	git pust NAME_REMOTE --tags
 
 Delete local tag 
 	git tag -d TAG_NAME
 Delete remote tag
 	git push NAME_REMOTE --delete TAG_NAME
-Create new branch
-	git switch -c NAME_BRANCH 
-	git checkout -b NAME_BRENCH
-Switch on new branch
-	git switch NAME_BRANCH
-	git checkout NAME_BRANCH
 
 
 
---Delete git file
+
+#Delete
+Delete git file
 
 Delete file in index
 	git rm FILE_NAME	or	git restore --staged NAME_FILE
@@ -158,7 +160,10 @@ Seve file and add to ignore
 Move or rename files
 	git mv OLD_FILE_NAME NEW_FILE_NAME
 
---Remote
+
+
+
+# Work with Remote
 
 Clone
 	git clone PROJECT_LINK
@@ -179,11 +184,24 @@ Get the changes from the remote repository to the newly created branch.
 Remote rename
 	git remote rename OLD_NAME_REMOTE NEW_NAME_REMOTE
 
---Work with branch
+
+
+
+
+
+
+# Work with branch
 
 Default branch - master
 Default remote - origen
 
+
+Create new branch
+	git switch -c NAME_BRANCH 
+	git checkout -b NAME_BRENCH
+Switch on new branch
+	git switch NAME_BRANCH
+	git checkout NAME_BRANCH
 
 # Commit have in hash sum:
 # commit 
@@ -208,11 +226,28 @@ Default remote - origen
 #		(_C_)-------------------
 
 
-	git checkout MASTER
+	"git checkout MASTER"
 	git merge LAST_BRANCH
 
 --remote merge
 	git merge REMOTE_NAME/REMOTE_BRANCH
+
+
+# Work with Rebase
+
+
+#	     (_A_)---(_B_) <HEAD OLD ---(_D_)' <HEAD NEW
+#               \                        *
+#                \                      *
+#               (*C*)******************* (Delete)
+
+
+	git rebase A B
+
+	"git rebase --onto A B C"
+	"git checout MASTER"
+	"git merge C"
+
 
 ----------------------------------------------------------------
 
