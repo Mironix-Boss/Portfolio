@@ -3,12 +3,17 @@
 						#  Information  #
 						#################
 
+
+
+
+
 #The project is updated as far as possible.
 #The project contains information about my experience in using various technologies and commands.
 #In the file, you can find brief information, instructions, commands, tips and descriptions of technologies in your own words.
 
 #Now there are 3 branches in the file: Git, AD, Linux.
 #In the future, I plan to add information about: BASH, PowerShel, Anseble, Doker, Requests QSL, HTML and CSS.
+
 
 
 
@@ -20,12 +25,11 @@
 #Git is a VCS - Version Control System. Git takes a snapshot of the files and keeps track of the difference between changes.
 
 
-
 --install git
 	sudo apt install git
 
 
---settings patch
+--patch settings config
 /etc/gitconfig  - contains global settings
 ~/.gitconfig   or   ~/.config/git/config  -  contains user local settings.
 
@@ -64,6 +68,18 @@ Comparison in the graphic utility
 	git difftool
 Show Changes in tag
 	git show NAME_TAG
+Show hash commit
+	git rev-parse NAME_BRENCH
+Show history commands
+	git reflog
+Show commit N ago
+	"git show HEAD@{2.months.ago}
+Show perent commit
+	git show HEAD^	or git show HEAD~
+#Merge commit have 2 perent. "HEAD^" "HEAD^1"
+
+
+
 
 
 
@@ -98,6 +114,14 @@ Log:
 
 #Status file: commited, modified, staged, untracked, unmodified.
 
+Show commit From To
+	git log BRENCH1..BRENCH2 
+
+Show alles commits From commit A B C bat not D
+	git log ^refA refD	or	git log refB --not refD
+
+Show commits in A brench and brench B.
+	git log master...experiment 	or	got log --left-right BreanchA...BreanchB
 
 
 
@@ -105,7 +129,21 @@ Log:
 --Working with index
 	git add "FILE_NAME"
 
+--interactive mod
+	git add -i
 
+Stash
+	git stash 
+	git stash apply --index
+Stash + .ignore
+	git stash --include-untracked
+Stash interactive mod
+	git --patch
+Create stash breanch
+	git  stash branch NAME_BRANCH
+
+Dell stash
+	git stash pop
 
 
 
@@ -197,8 +235,8 @@ Remote rename
 
 # Work with branch
 
-Default branch - master
-Default remote - origen
+#Default branch - master
+#Default remote - origen
 
 
 Create new branch
@@ -253,6 +291,75 @@ Switch on new branch
 	"git rebase --onto A B C"
 	"git checout MASTER"
 	"git merge C"
+
+
+
+
+# Huks
+
+
+--patch hooks
+.git/hooks
+
+# Class huks: Server, Client.
+
+# Huks have levels: per-commit, prepare-commit-msg, commit-msg
+
+# pre-commit 
+# - Runs before the commit message.
+# - You can perform simple code checks: simple tests, code style, and more. 
+# - Ingnored by the flag - --no-verify:
+	'git commit --no verify'
+
+
+
+# prepare-commit-mgs
+# - Fires before the message editor is called, but after the standard message has been created.
+# - Allows you to change the standard commit messages.
+
+
+
+# commit-msg
+# - Takes as input the path to a temporary file with a commit message.
+# - Allows you to validate a commit message based on patterns.
+
+
+
+# Email huks: applypatch-msg, pre-applypatch, post-applypatch.
+# And more: pre-rebase, post-rewrite, post-checkout, post-merge, pre-push.
+
+# pre-rebase
+# - may prevent rebase
+
+
+# pre-rewrite
+# - run "git commit --amend" and "git rebase"
+# - may prevent rebase
+
+
+# post-checkout
+# - may prevent pust
+
+
+
+
+# Server huks:
+
+# pre-receive
+# - Works when receiving data from the clien
+# - Unchecks all changes
+# - Quick code check or commit message
+
+
+# update
+# - Works when receiving data from the clien all branch
+# - Unchecks changes in Branches
+# - Checking user permissions to push to a branch!
+
+# post-receive
+# - Notification of external services 
+
+
 
 
 ----------------------------------------------------------------
