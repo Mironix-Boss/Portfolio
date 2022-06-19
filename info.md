@@ -138,6 +138,7 @@ Delete remote tag
 	git push NAME_REMOTE --delete TAG_NAME
 Create new branch
 	git switch -c NAME_BRANCH 
+	git checkout -b NAME_BRENCH
 Switch on new branch
 	git switch NAME_BRANCH
 	git checkout NAME_BRANCH
@@ -194,10 +195,24 @@ Default remote - origen
 # Tree have blob - hash cum files
 
 
-Branch
+--Branch
 	git branch NAME_BRANCH
 
+--merge
+#There are two ways to merge:
+#Fast-Forvord - (_A_)---(_B_) <HEAD
 
+#Recursive - (_A_)---(_B_) <HEAD OLD ---(_D_) <HEAD NEW
+#	        \			 /
+#		 \			/
+#		(_C_)-------------------
+
+
+	git checkout MASTER
+	git merge LAST_BRANCH
+
+--remote merge
+	git merge REMOTE_NAME/REMOTE_BRANCH
 
 ----------------------------------------------------------------
 
