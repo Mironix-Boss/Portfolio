@@ -1,5 +1,7 @@
 
-						Information
+						#################
+						#  Information  #
+						#################
 
 #The project is updated as far as possible.
 #The project contains information about my experience in using various technologies and commands.
@@ -8,15 +10,28 @@
 #Now there are 3 branches in the file: Git, AD, Linux.
 #In the future, I plan to add information about: BASH, PowerShel, Anseble, Doker, Requests QSL, HTML and CSS.
 
-						Git
-Git is a VCS - Version Control System. Git takes a snapshot of the files and keeps track of the difference between changes.
+
+
+
+						#######
+						# Git #
+						#######
+
+#Git is a VCS - Version Control System. Git takes a snapshot of the files and keeps track of the difference between changes.
+
+
 
 --install git
 	sudo apt install git
 
+
 --settings patch
 /etc/gitconfig  - contains global settings
 ~/.gitconfig   or   ~/.config/git/config  -  contains user local settings.
+
+
+
+
 
 --first settings git
 Add user name
@@ -26,7 +41,6 @@ Add user email
 Add core editor
 	git config --global core.editor nano
 
-
 --Add git alias
 	git config --global alias.br branch
 	git config --global alias.ci commit
@@ -35,10 +49,13 @@ Add core editor
 	git config --global alias.visual "!gitk"
 
 
---Git start comand.
+
+
+
+--Start in git.
 	git init
 
-
+# Status
 --Check Status comands:
 	git status
 Chech Changes: (--staged or --cached comparison of indexed files)
@@ -48,9 +65,14 @@ Comparison in the graphic utility
 Show Changes in tag
 	git show NAME_TAG
 
+
+
+
+
 --Log
 	git log
 	git show NAME_COMMITE
+
 Log: 
 (--patch -1|-p 1 			show diff between commits
  -(n)					show last number of commits
@@ -74,60 +96,60 @@ Log:
  --relative-date			show date in format
 )
 
+#Status file: commited, modified, staged, untracked, unmodified.
 
 
-Status file: commited, modified, staged, untracked, unmodified.
+
+
 
 --Working with index
 	git add "FILE_NAME"
 
---Commit
 
+
+
+
+--Commit
 
 	git commit -m "You commit"
 	git commit -a -m "You commit fast ADD file"
 	git commit -v "ADD IN COMMIT - DIFF"
 
-
-
-
-
-Substitution or rename commit
+--Substitution or rename commit
 	git commit --amend
 
-Status file: modified, commited, staged, untracked, unmodified.
 
---Tags
 
-There are two kinds of tags.
 
-Lightweight - have name tag
-Annotated - have name tag, date, info changes, name author, commit.
+
+# Tags
+
+#There are two kinds of tags.
+
+# - Lightweight - have name tag
+# - Annotated - have name tag, date, info changes, name author, commit.
 
 	git tag
-
 Tag list
 	git tag -l
 Add tag in commit
 	git tag -a NAME_TAG HASH_COMMIT
 -m 					add messege in tag
 
-Tags in remote
+--Tags in remote
 	git pust NAME_REMOTE --tags
 
 Delete local tag 
 	git tag -d TAG_NAME
 Delete remote tag
 	git push NAME_REMOTE --delete TAG_NAME
-Create new branch
-	git switch -c NAME_BRANCH 
-Switch on new branch
-	git switch NAME_BRANCH
-	git checkout NAME_BRANCH
 
 
 
---Delete git file
+
+
+#Delete
+Delete git file
 
 Delete file in index
 	git rm FILE_NAME	or	git restore --staged NAME_FILE
@@ -136,11 +158,19 @@ Deleting a file if it is added to the index
 Seve file and add to ignore
 	git rm --cached FILE_NAME
 
---Move and rename
+
+
+
+
+#Move and rename
 Move or rename files
 	git mv OLD_FILE_NAME NEW_FILE_NAME
 
---Remote
+
+
+
+
+# Work with Remote
 
 Clone
 	git clone PROJECT_LINK
@@ -161,25 +191,68 @@ Get the changes from the remote repository to the newly created branch.
 Remote rename
 	git remote rename OLD_NAME_REMOTE NEW_NAME_REMOTE
 
---Work with branch
+
+
+
+
+# Work with branch
 
 Default branch - master
 Default remote - origen
 
 
-Commit have in hash sum:
-commit 
-tree
-perent
-author 
-committer
+Create new branch
+	git switch -c NAME_BRANCH 
+	git checkout -b NAME_BRENCH
+Switch on new branch
+	git switch NAME_BRANCH
+	git checkout NAME_BRANCH
 
-Tree have blob - hash cum files
+# Commit have in hash sum:
+# commit 
+# tree
+# perent
+# author 
+# committer
+
+# Tree have blob - hash cum files
 
 
-Branch
+
+
+
+# Work with Branches
 	git branch NAME_BRANCH
 
+--merge
+#There are two ways to merge:
+#Fast-Forvord - (_A_)---(_B_) <HEAD
+
+#Recursive - (_A_)---(_B_) <HEAD OLD ---(_D_) <HEAD NEW
+#	        \			 /
+#		 \			/
+#		(_C_)-------------------
+
+
+	"git checkout MASTER"
+	git merge LAST_BRANCH
+
+--remote merge
+	git merge REMOTE_NAME/REMOTE_BRANCH
+
+# Work with Rebase
+
+#	     (_A_)---(_B_) <HEAD OLD ---(_D_)' <HEAD NEW
+#               \                        *
+#                \                      *
+#               (*C*)******************* (Delete)
+
+
+	git rebase A B
+
+	"git rebase --onto A B C"
+	"git checout MASTER"
+	"git merge C"
 
 
 ----------------------------------------------------------------
