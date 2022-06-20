@@ -67,7 +67,9 @@ Chech Changes: (--staged or --cached comparison of indexed files)
 Comparison in the graphic utility
 	git difftool
 Show Changes in tag
-	git show NAME_TAG
+	git show NAME_TAG	
+Show commit on hash
+	git show "a21e1d"
 Show hash commit
 	git rev-parse NAME_BRENCH
 Show history commands
@@ -122,6 +124,36 @@ Show alles commits From commit A B C bat not D
 
 Show commits in A brench and brench B.
 	git log master...experiment 	or	got log --left-right BreanchA...BreanchB
+
+--GREP
+	git grep
+{
+-n	number line
+-c	count file
+-p	count function	
+
+--and
+--or	Logic operators
+--not
+
+--breake	Add breake in line
+--heading	Show name files above found lines
+}
+	" git grep --break --heading -n -e '#TEXT1' --and \(-e TEXT2 -e TEXT3 \) NAME_TAG "
+
+
+
+--Binary found
+
+	git bisect start
+	git bisect bad
+	git bisect good NAME_TAG
+
+	git bisect reset
+
+	git bisect start HEAD TAG_NAME
+	git bisect run SCRIPT.SH	-	run script
+
 
 
 
