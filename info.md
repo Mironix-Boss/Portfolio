@@ -191,7 +191,6 @@ Dell stash
 
 
 
-
 # Tags
 
 #There are two kinds of tags.
@@ -229,7 +228,7 @@ Seve file and add to ignore
 	git rm --cached FILE_NAME
 
 
-
+	
 
 
 #Move and rename
@@ -288,6 +287,24 @@ Switch on new branch
 # Tree have blob - hash cum files
 
 
+Filter-branch - can delete file in project.
+	git filter-branch --tree-filter 'rm -f FILE_NAME.TXT' HEAD
+
+
+# script edit email in project #
+
+	git filter-branch --commit-filter '
+#	if [ "$GIT_AUTHOR_EMAIL" = "VasyPupkin@localhost" ];
+#	then
+#		GIT_AUTHOR_EMAIL="DanilNePupkin";
+#
+#	GIT_AUTHOR_EMAIL="DanilNePupkin";
+#		git commit-tree "$@";
+#	else
+#		git commit-tree "$@";
+#	fi' HEAD
+
+
 
 
 
@@ -307,6 +324,16 @@ Switch on new branch
 	"git checkout MASTER"
 	git merge LAST_BRANCH
 
+--delete merge commit 
+	git reset --hard HEAD~
+--cancel commit
+	git revert -m 1 HEAD
+
+
+
+
+
+
 --remote merge
 	git merge REMOTE_NAME/REMOTE_BRANCH
 
@@ -323,6 +350,18 @@ Switch on new branch
 	"git rebase --onto A B C"
 	"git checout MASTER"
 	"git merge C"
+
+Interactive mod
+	git rebase -i HEAD~3
+
+{
+p - use commit
+r - use commit and edit the commit message
+e - use commit, but stop for amending
+s - use commit, but meld into previous commit
+f - like S but, discard this commit`s log
+x - using shell 
+}
 
 
 
