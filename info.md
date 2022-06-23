@@ -55,6 +55,15 @@ Add core editor
 
 
 
+--Submodule
+	git submodule init
+	git submodule update
+
+--Add submodule
+	git submodule add URL_GIT_POJECT
+
+
+
 
 --Start in git.
 	git init
@@ -264,7 +273,10 @@ Get the changes from the remote repository to the newly created branch.
 
 Remote rename
 	git remote rename OLD_NAME_REMOTE NEW_NAME_REMOTE
-
+Remote submodule
+	git submodule update --remote
+Push new info about submodule in remote.
+	git submodule update --remote --merge
 
 
 
