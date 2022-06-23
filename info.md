@@ -143,7 +143,12 @@ Show commits in A brench and brench B.
 
 
 
---Binary found
+Blame
+	git blame -L "12,16" FILE.TXT
+
+
+
+--Binary
 
 	git bisect start
 	git bisect bad
@@ -329,8 +334,12 @@ Filter-branch - can delete file in project.
 --cancel commit
 	git revert -m 1 HEAD
 
+--Ignore space
+	git merge -Xignore-all-space whitespace
 
 
+--show hash conflict files
+	git show ls-files -u 
 
 
 
