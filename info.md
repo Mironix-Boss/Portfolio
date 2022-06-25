@@ -51,7 +51,7 @@ Add core editor
 	git config --global alias.st status
 	git config --global alias.last 'log -1 HEAD'
 	git config --global alias.visual "!gitk"
-
+	git config --global gpg.program $(which gpg)
 
 
 
@@ -482,6 +482,29 @@ x - using shell
 
 
 
+# Crypto - gpg2 gnupg 
+
+	sudo apt-get update -y
+	sudo apt-get install -y gnupg2
+
+
+nano ~/.gnupg/gpg.conf
+	use-agent
+	source ~/.bashrc
+	chmod og-rwx ~/.gnupg
+
+	gpg --full-gen-key
+{
+RSA
+4096
+1y
+}
+
+Show key list
+	gpg -k		or	gpg -K --keyid-format SHORT
+	
+Show public key
+	gpg --armor --export
 ----------------------------------------------------------------
 
 
