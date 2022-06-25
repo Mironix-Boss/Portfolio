@@ -385,6 +385,34 @@ x - using shell
 }
 
 
+# Replace
+
+# Helps to migrate a branch between repositories
+
+	  |
+	  |
+	(_1_)
+	  |
+	  |  replace
+	(_2_)----->(_2_)
+	  |	     |
+	  |	     |
+	(_3_)	   (_3_)
+
+	
+
+	git replace OLD_BRANCH NEW_BRANCH
+
+
+	"git branch history HASH_KOMMIT"
+	"git pust project-history history:master"
+	"git commit-tree HASH_COMMIT^{tree}"
+	"git rebase --onto HASH_COMMIT_MASTER HASH_COMMIT_HISTORY"
+
+
+
+
+
 
 
 # Huks
